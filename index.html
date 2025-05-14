@@ -1,6 +1,6 @@
 
-<!-- О, привет Жень!  -->
 <!DOCTYPE html>
+<!-- О, привет Жень!  -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,46 +9,70 @@
         body { font-family: sans-serif; margin: 0; text-align: center; }
         .container { max-width: 1200px; margin: auto; padding: 20px; }
         img { width: 300px; border-radius: 10px; }
-        .socials { display: flex; justify-content: center; gap: 50px; margin-top: 30px; }
-        .social-block { background: #f0f0f0; padding: 20px; border-radius: 10px; width: 200px; }
+        .socials { display: flex; justify-content: center; gap: 50px; margin-top: 30px; flex-wrap: wrap; }
+        .social-block { background: #f0f0f0; padding: 20px; border-radius: 10px; width: 250px; }
+        .social-block img { width: 100px; border-radius: 50%; margin-top: 10px; }
         .contact { margin-top: 40px; }
+        .language { margin-top: 30px; }
     </style>
+    <script>
+        function setLanguage(lang) {
+            const en = document.querySelectorAll('.lang-en');
+            const ru = document.querySelectorAll('.lang-ru');
+            const ka = document.querySelectorAll('.lang-ka');
+            
+            [en, ru, ka].forEach(list => list.forEach(el => el.style.display = 'none'));
+
+            if (lang === 'en') en.forEach(el => el.style.display = 'block');
+            if (lang === 'ru') ru.forEach(el => el.style.display = 'block');
+            if (lang === 'ka') ka.forEach(el => el.style.display = 'block');
+        }
+    </script>
 </head>
-<body>
+<body onload="setLanguage('en')">
     <div class="container">
         <header>
             <img src="neptun_files/pes.jpg" alt="Neptun Doggy">
-            <h1>Please return me home</h1>
-            <h3>My name is Neptun and my family lost me!<br>Please contact them!</h3>
+            <h1 class="lang-en">Please return me home</h1>
+            <h1 class="lang-ru">Пожалуйста, верните меня домой</h1>
+            <h1 class="lang-ka">გთხოვთ დამაბრუნოთ სახლში</h1>
+
+            <h3 class="lang-en">My name is Neptun and my family lost me!<br>Please contact them!</h3>
+            <h3 class="lang-ru">Меня зовут Нептун, и моя семья меня потеряла!<br>Свяжитесь с ними!</h3>
+            <h3 class="lang-ka">მე ნეპტუნი ვარ და ჩემი ოჯახი დამეკარგა!<br>გთხოვთ, დაუკავშირდით მათ!</h3>
         </header>
         
+        <section class="language">
+            <p>🔄 Choose language: 
+                <a href="#" onclick="setLanguage('en')">English</a> | 
+                <a href="#" onclick="setLanguage('ru')">Русский</a> | 
+                <a href="#" onclick="setLanguage('ka')">ქართული</a>
+            </p>
+        </section>
+
+        <section class="contact">
+            <h2 class="lang-en">Contact Us</h2>
+            <h2 class="lang-ru">Связаться с нами</h2>
+            <h2 class="lang-ka">დაგვიკავშირდით</h2>
+        </section>
+
         <section class="socials">
             <div class="social-block">
                 <h3>Mommy</h3>
                 <a href="https://instagram.com/psycho_lis" target="_blank">Instagram</a><br>
                 <a href="https://t.me/psycho_lisss" target="_blank">Telegram</a><br>
-                <a href="mailto: alicevish9@gmail.com">Email</a>
+                <a href="mailto: alicevish9@gmail.com">Email</a><br>
+                <a href="tel:+995595016394">+995 595 016 394</a><br>
+                <img src="neptun_files/lis.jpg" alt="Mommy">
             </div>
             <div class="social-block">
                 <h3>Daddy</h3>
                 <a href="https://instagram.com/manderlog" target="_blank">Instagram</a><br>
                 <a href="https://t.me/dima_mandr" target="_blank">Telegram</a><br>
-                <a href="mailto: damandrik@gmail.com">Email</a>
+                <a href="mailto: damandrik@gmail.com">Email</a><br>
+                <a href="tel:+995591126252">+995 5911 26252</a><br>
+                <img src="neptun_files/ya.jpg" alt="Daddy">
             </div>
-        </section>
-
-        <section class="contact">
-            <h2>Contact Us</h2>
-            <p>
-                Mommy: <a href="https://instagram.com/psycho_lis" target="_blank">Instagram</a> | 
-                <a href="mailto: alicevish9@gmail.com">Email</a> | 
-                <a href="tel:+1234567890">+995 595 016 394</a>
-            </p>
-            <p>
-                Daddy: <a href="https://instagram.com/manderlog" target="_blank">Instagram</a> | 
-                <a href="mailto: damandrik@gmail.com">Email</a> | 
-                <a href="tel:+0987654321">+995 5911 26252</a>
-            </p>
         </section>
     </div>
 </body>
